@@ -1,3 +1,9 @@
+# Misc
+.idea
+
+# Third-party projects
+third_party/*
+
 # Prerequisites
 *.d
 
