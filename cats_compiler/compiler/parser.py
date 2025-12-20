@@ -1,8 +1,9 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from enum import Enum
+from enum import Enum, UNIQUE, verify
 from typing import List, Optional, Dict, Any, Union
 
+@verify(UNIQUE)
 class SplitType(Enum):
   FloatFeature = "FloatFeature"
   OneHotFeature = "OneHotFeature"
