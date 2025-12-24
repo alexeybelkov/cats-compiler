@@ -8,4 +8,5 @@ dependencies = [
     "catboost>=1.2.8",
     "notebook==7.5.1",
     "pandas>=2.3.3",
+    "scikit-learn>=1.8.0",
 ]

@@ -1,5 +1,6 @@
 # Misc
 .idea
+artifacts/*
 
 # Third-party projects
 third_party/*
