@@ -37,3 +37,9 @@ third_party/*
 *.exe
 *.out
 *.app
+
+.vscode
+cmake-build*/
+build/
+catboost_info/
+__pycache__
