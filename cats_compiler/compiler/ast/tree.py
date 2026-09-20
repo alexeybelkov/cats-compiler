@@ -1,6 +1,6 @@
-from typing import Any
+from typing import Any, Iterable
 from enum import Enum, verify, UNIQUE
-import deepcopy
+from copy import deepcopy
 
 
 RawSplitT = dict[str, str|int|float]
@@ -16,8 +16,8 @@ class SplitType(Enum):
       return self.FloatFeature
     else:
       return self.OneHotFeature
-  def get_index_name(self, raw_split: RawSplitT) -> str:
-    return _INDEX_NAMES.intersection(raw_split.keys()).pop()
+  # def get_index_name(self, raw_split: RawSplitT) -> str:
+  #   return _INDEX_NAMES.intersection(raw_split.keys()).pop()
 
 
 class Leaf:
@@ -49,7 +49,14 @@ class Tree:
   def from_dict(cls, tree: dict[str, Any]) -> 'Tree':
     return cls(tree['leaf_values'], tree['leaf_weights'], tree['splits'])
   @classmethod
-  def from_tree(cls, tree: 'Tree') -> 'Tree':
+  def copy_from(cls, tree: 'Tree') -> 'Tree':
     return deepcopy.copy(tree)
   def __repr__(self) -> str:
     return super().__repr__()
+
+
+class GBDT:
+  def __init__(self, trees: Iterable[Tree]):
+    self.trees = list(trees)
+  def transpile(self):
+    pass
